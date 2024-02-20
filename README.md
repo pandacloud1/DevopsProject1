@@ -3,5 +3,6 @@
 Contains the below:
 ---
 1. Simple Java Code
-2. Ansible playbook 
-3. K8s manifests
+2. Dockerfile
+3. Ansible playbook 
+4. K8s manifests
