@@ -5,5 +5,5 @@
 ### K8s Server --> Docker, K8s (Kubeadm)
 
 ##### *NOTE*:
-##### 1. Create a 'My_key.pem' from AWS EC2 console 
-##### 2. Save the file in the same location as the terraform code
+1. Create a 'My_key.pem' from AWS EC2 console 
+2. Save the key file in the same location as your terraform code
