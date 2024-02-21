@@ -8,4 +8,3 @@ Contains the below:
 4. K8s manifests
 5. Dockerfile
 6. Terraform code
-.
