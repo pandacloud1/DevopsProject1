@@ -1,7 +1,7 @@
 ### TERRAFORM FILES
 ---
 
-![Terraform](https://github.com/pandacloud1/DevopsProject1/assets/134182273/f3495d18-67c4-41df-ad32-524d13f9edce)
+![image](https://github.com/pandacloud1/DevopsProject1/assets/134182273/a2160ad5-dde2-47b6-a407-f17978018bce)
 
 
 #### The above Terraform files will create 'Jenkins' & 'K8s' servers
