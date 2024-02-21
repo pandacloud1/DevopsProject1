@@ -1,4 +1,4 @@
-// JENKINS CI PIPELINE
+// JENKINS CI PIPELINE/
 // Purpose: The Code will be built into executable file (.jar) & pushed to Dockerhub
 // NOTE:
 //  i. Store Dockerhub, EC2 pem key credentials in Jenkins Server
