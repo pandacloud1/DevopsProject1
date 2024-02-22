@@ -50,7 +50,8 @@ This repository contains the following components:
 
 #### 7.  Automation
      a. Automate the CD pipeline after CI pipeline is built successfully
-        (CD-pipeline --> Configure --> Build Triggers --> Projects to watch (CI-pipeline) --> Trigger only if build is stable --> Save)
+        (CD-pipeline --> Configure --> Build Triggers --> Projects to watch (CI-pipeline) --> 
+        Trigger only if build is stable --> Save)
      b. Automate CI pipeline if any changes are pushed to Github
         (Webhook will be created in Github & trigger will be created in Jenkins)
         Jenkins --> Configure --> Build triggers --> 'Github hook trigger for GitSCM polling' --> Save
