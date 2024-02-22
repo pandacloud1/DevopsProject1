@@ -27,8 +27,9 @@ This repository contains the following components:
     d. Dockerhub token (optional) (Generate token & save as 'secret key')
         (Dockerhub: Account --> Settings --> Security --> Generate token & copy it)
 
-### 4.  Also add required plugins in Jenkins portal, here we will require 'ssh agent' plugin to access the Node from the Master
+### 4.  Add required plugins in Jenkins portal
         (Manage Jenkins --> Plugins --> Available plugins --> 'ssh agent' --> Install)
+        (This plugin is required to generate ssh agent syntax using pipeline syntax generator)
 
 ### 5.  Access Jenkins portal & paste the 'CI-pipeline' code
         Run the pipeline
