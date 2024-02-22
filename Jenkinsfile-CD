@@ -6,11 +6,10 @@ pipeline {
     agent any
     // DECLARE THE VARIABLES HERE:
     environment {
-    EC2_NAME = "ec2-user"              // enter your AWS EC2 username
-    ANSIBLE_IP = '172.31.83.184'       // enter your Ansible server private IP here
-    K8S_IP = '172.31.81.40'            // paste your K8s server private IP here
-    PIPELINE_NAME = "CI-PIPELINE"      // enter your pipeline name here 
-    PROJECT_NAME = "DevopsProject1"     // enter your Devops project name here
+    K8S_IP = '<K8s_Private_IP>'            // paste your K8s server private IP here
+    EC2_NAME = "ec2-user"                  // enter your AWS EC2 username
+    PIPELINE_NAME = "CI-PIPELINE"          // enter your pipeline name here 
+    PROJECT_NAME = "DevopsProject1"        // enter your Devops project name here
     }
 
     stages {
@@ -29,15 +28,14 @@ pipeline {
           // If 'manual approval' is required, then it is called 'Continuous Delivery'
           // If it is totally automated, then it is called 'Continuous Deployment'
             steps {
-                input message: 'Approve deployment?', submitter: 'myself'
+                input message: 'Approve deployment?'
             }
         }
 
         stage("3. Deployment") {
           // K8s Deployment using Ansible
             // i. Ensure to establish passwordless connection between Ansible & K8s first
-            // ii. Run the ansible playbook to create deployment & service files in K8s server
-            // iii. Your deployment.yaml file must contain the Dockerhub image within the container block
+           // ii. Your deployment.yaml file must contain the Dockerhub image within the container block
             steps {
               sshagent(['my_ec2_creds']) {          // store EC2 username & pem-key in Jenkins credentials
                 sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${K8S_IP}"   // enter your K8s private IP here
