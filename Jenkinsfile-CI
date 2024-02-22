@@ -19,12 +19,16 @@ pipeline {
             }
         }
 
-        stage ("2. Clone Github") {
+        stage ('2. Git Checkout') {
+            // use pipeline syntax generator to generate below step
+            // 'Pipeline syntax' --> Steps 'Smaple step' --> git (enter url & branch & generate)
             steps {
-                sh "git clone https://github.com/pandacloud1/DevopsProject1.git"
+                script {
+                    git branch: 'main', url: 'https://github.com/pandacloud1/DevopsProject1.git' 
+                }
             }
         }
-        
+
         stage("3. Maven Unit Test") {  
             // Test the individual units of code 
             steps{
