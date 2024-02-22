@@ -71,6 +71,7 @@ resource "aws_instance" "my_ec2_instance1" {
 
   user_data = <<-EOF
     #!/bin/bash
+    # wait for 1min before EC2 initialization
     sleep 60
     sudo wget https://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
     sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
@@ -89,6 +90,7 @@ resource "aws_instance" "my_ec2_instance1" {
     }
 
     inline = [        
+      # wait for 200sec before EC2 initialization
       "sleep 200",
       # Install Git 
       "sudo yum install git -y",
@@ -103,6 +105,7 @@ resource "aws_instance" "my_ec2_instance1" {
       "sudo systemctl start jenkins",
 
       # Install Docker
+      # REF: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-docker.html
       "sudo yum update -y",
       "sudo yum install docker -y",
       "sudo systemctl start docker",
