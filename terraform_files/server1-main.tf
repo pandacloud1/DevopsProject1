@@ -130,15 +130,15 @@ output "ACCESS_YOUR_JENKINS_HERE" {
 }
 
 output "Jenkins_Initial_Password" {
-  value = "Run 'sudo cat /var/lib/jenkins/secrets/initialAdminPassword' in the Server"
+  value = "sudo cat /var/lib/jenkins/secrets/initialAdminPassword"
 }
 
-# STEP4: OUTPUT PRIVATE IP OF EC2 INSTANCE
-output "MASTER_SERVER_PRIVATE_IP" {
-  value = aws_instance.my_ec2_instance1.private_ip
-}
-
-# STEP5: OUTPUT PUBLIC IP OF EC2 INSTANCE
+# STEP4: OUTPUT PUBLIC IP OF EC2 INSTANCE
 output "MASTER_SERVER_PUBLIC_IP" {
   value = aws_instance.my_ec2_instance1.public_ip
+}
+
+# STEP5: OUTPUT PRIVATE IP OF EC2 INSTANCE
+output "MASTER_SERVER_PRIVATE_IP" {
+  value = aws_instance.my_ec2_instance1.private_ip
 }
