@@ -87,7 +87,7 @@ resource "aws_instance" "my_ec2_instance2" {
   }
 
   tags = {
-    Name = "2.KUBERNETES-SERVER"
+    Name = "NODE-SERVER"
   }
 
   # STEP3: USING REMOTE-EXEC PROVISIONER TO INSTALL TOOLS
@@ -137,11 +137,11 @@ resource "aws_instance" "my_ec2_instance2" {
 }
 
 # STEP3: OUTPUT PUBLIC IP OF EC2 INSTANCE
-output "K8S_SERVER_PUBLIC_IP" {
+output "NODE_SERVER_PUBLIC_IP" {
   value = aws_instance.my_ec2_instance2.public_ip
 }
 
 # STEP4: OUTPUT PRIVATE IP OF EC2 INSTANCE
-output "K8S_SERVER_PRIVATE_IP" {
+output "NODE_SERVER_PRIVATE_IP" {
   value = aws_instance.my_ec2_instance2.private_ip
 }
