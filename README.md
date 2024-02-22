@@ -18,7 +18,7 @@ This repository contains the following components:
 #### 2.  Establish passwordless connection between Master & Node
 
 #### 3.  Access Jenkins portal & add credentials in Jenkins portal as below:
-        (Manage Jenkins --> Credentials --> System --> Global credentials)
+    (Manage Jenkins --> Credentials --> System --> Global credentials)
 
     a. Dockerhub credentials - username & password (Use 'secret text' & save them separately)
     b. K8s server username with private key (Use 'SSH Username with private key')
