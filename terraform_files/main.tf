@@ -1,4 +1,4 @@
-# SERVER1: JENKINS SERVER (with Maven & Docker)
+# SERVER1: JENKINS SERVER (with Maven, Docker, Ansible, Trivy)
 # STEP1: CREATING A SECURITY GROUP FOR JENKINS SERVER
 # Description: Allow SSH, HTTP, HTTPS, 8080, 8081
 resource "aws_security_group" "my_security_group1" {
