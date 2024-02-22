@@ -23,12 +23,14 @@ pipeline {
             // use pipeline syntax generator to generate below step
             // 'Pipeline syntax' --> Steps 'Smaple step' --> git (enter url & branch & generate)
             steps {
-                script {
+                dir ("DevopsProject1"){
+                  script {
                     git branch: 'main', url: 'https://github.com/pandacloud1/DevopsProject1.git' 
+                  }
                 }
             }
-        }
-
+        }   
+        
         stage("3. Maven Unit Test") {  
             // Test the individual units of code 
             steps{
