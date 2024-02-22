@@ -31,4 +31,14 @@ This repository contains the following components:
         (Manage Jenkins --> Plugins --> Available plugins --> 'ssh agent' --> Install)
 
 ### 5.  Access Jenkins portal & paste the 'CI-pipeline' code
-        #### Run
+        #### Run the pipeline
+
+### 6.  Now create another 'CD-pipeline'
+        #### a. Enter the 'Pipeline name', 'Project Name' & 'Node-Server' Private IP under the environment variables section
+        #### b. Run the pipeline
+        #### c. Access the content from the browser using <Node_Server_Public_IP>:<NodePort_No>
+
+### 7.  Automation
+        #### a. Automate the CD pipeline after CI pipeline is built successfully
+            (CD-pipeline --> Configure --> Build Triggers --> Projects to watch (CI-pipeline) --> Trigger only if build is stable --> Save)
+        #### b. Automate CI pipeline if any changes are pushed to Github
