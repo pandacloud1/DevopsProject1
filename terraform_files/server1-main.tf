@@ -55,7 +55,7 @@ resource "aws_security_group" "my_security_group1" {
 #      ii. Copy it in the same directory as your terraform code
 resource "aws_instance" "my_ec2_instance1" {
   ami                    = "ami-0cf10cdf9fcd62d37"
-  instance_type          = "t2.micro"
+  instance_type          = "t2.medium"
   vpc_security_group_ids = [aws_security_group.my_security_group1.id]
   key_name               = "My_Key" # paste your key-name here, do not use extension '.pem'
 
@@ -88,8 +88,9 @@ resource "aws_instance" "my_ec2_instance1" {
       host        = self.public_ip
     }
 
-    inline = [
-      # Install Git   
+    inline = [        
+      "sleep 200",
+      # Install Git 
       "sudo yum install git -y",
       
       # Install Jenkins 
