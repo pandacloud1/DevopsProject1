@@ -9,12 +9,14 @@ Contains the below:
 5. Terraform code
 
 ## ALGORITHM
----
+
 ### 1. Create two EC2 servers Master & Node using Terraform code
    #### a. 'Master-Server' will have Java, Jenkins, Maven, Docker, Ansible & Trivy packages
    #### b. 'Node-Server' will have Docker, Kubeadm & K8s packages
 
+
 ### 2. Establish passwordless connection between Master & Node
+
 
 ### 3. Access Jenkins portal & add credentials in Jenkins portal as below:
    (Manage Jenkins --> Credentials --> System --> Global credentials --> )
@@ -25,16 +27,20 @@ Contains the below:
    #### d. Dockerhub token (optional)                  # (Generate token & save as 'secret key')
       (Dockerhub: Account --> Settings --> Security --> Generate token & copy it)
 
+
 ### 4. Also add required plugins in Jenkins portal, here we will require 'ssh agent' plugin to access the Node from the Master
    (Manage Jenkins --> Plugins --> Available plugins --> 'ssh agent' --> Install)
 
+
 ### 5. Access Jenkins portal & paste the 'CI-pipeline' code
    #### Run the pipeline
+
 
 ### 6. Now create another 'CD-pipeline'
    #### a. Enter the 'Pipeline name', 'Project Name' & 'Node-Server' Private IP under the environment variables section
    #### b. Run the pipeline
    #### c. Access the content from the browser using <Node_Server_Public_IP>:<NodePort_No>
+
 
 ### 7. AUTOMATION
    #### a. Automate the CD pipeline after CI pipeline is built successfully
