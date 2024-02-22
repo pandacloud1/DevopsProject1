@@ -52,3 +52,9 @@ This repository contains the following components:
      a. Automate the CD pipeline after CI pipeline is built successfully
         (CD-pipeline --> Configure --> Build Triggers --> Projects to watch (CI-pipeline) --> Trigger only if build is stable --> Save)
      b. Automate CI pipeline if any changes are pushed to Github
+        (Webhook will be created in Github & trigger will be created in Jenkins)
+        Jenkins --> Configure --> Build triggers --> 'Github hook trigger for GitSCM polling' --> Save
+        Jenkins --> <Your_Account> --> Configure --> API Tokens --> <Jenkins-API-Token>
+        Github --> <Your-Repo> --> Settings --> Webhooks --> "<Jenkins-url>:8080/github-webhook/"; Content type: json;     Secret: <Jenkins-API-Token> --> Add Webhook
+        (Try making any changes in your code & the pipeline should automatically trigger)
+
