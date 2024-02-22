@@ -11,9 +11,8 @@ Contains the below:
 ## ALGORITHM
 ---
 ### 1. Create two EC2 servers Master & Node using Terraform code
-   ### a. 'Master-Server' will have Java, Jenkins, Maven, Docker, Ansible & Trivy packages
-      ### (Install Maven separately)
-   ### b. 'Node-Server' will have Docker, Kubeadm & K8s packages
+   #### a. 'Master-Server' will have Java, Jenkins, Maven, Docker, Ansible & Trivy packages
+   #### b. 'Node-Server' will have Docker, Kubeadm & K8s packages
 
 2. Establish passwordless connection between Master & Node
 
