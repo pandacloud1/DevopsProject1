@@ -1,4 +1,4 @@
-# SERVER2: KUBERNETES SERVER (with Docker & Minikube)
+# SERVER2: 'NODE-SERVER' (with Docker & Kubernetes)
 # STEP1: CREATING A SECURITY GROUP FOR DOCKER-K8S
 # Description: K8s requires ports 22, 80, 443, 6443, 8001, 10250, 30000-32767
 resource "aws_security_group" "my_security_group2" {
