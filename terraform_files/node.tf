@@ -104,6 +104,7 @@ resource "aws_instance" "my_ec2_instance2" {
       "sleep 200",
 
       # Install Docker
+      # REF: https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html
       "sudo yum update -y",
       "sudo yum install docker -y",
       "sudo systemctl start docker",
@@ -111,6 +112,7 @@ resource "aws_instance" "my_ec2_instance2" {
       "sudo chmod 777 /var/run/docker.sock",
       
       # Install K8s
+      # REF: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
       "sudo setenforce 0",
       "sudo sed -i 's/^SELINUX=enforcing$$/SELINUX=permissive/' /etc/selinux/config",
       "cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo",
