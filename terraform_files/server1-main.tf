@@ -66,7 +66,7 @@ resource "aws_instance" "my_ec2_instance1" {
   }
 
   tags = {
-    Name = "1.JENKINS-SERVER"
+    Name = "MASTER-SERVER"
   }
 
   user_data = <<-EOF
@@ -125,7 +125,7 @@ resource "aws_instance" "my_ec2_instance1" {
 }
 
 # STEP3: OUTPUT PUBLIC IP OF EC2 INSTANCE
-output "ACCESS_YOUR_JENKINS_SERVER_HERE" {
+output "ACCESS_YOUR_JENKINS_HERE" {
   value = "http://${aws_instance.my_ec2_instance1.public_ip}:8080"
 }
 
@@ -134,6 +134,11 @@ output "Jenkins_Initial_Password" {
 }
 
 # STEP4: OUTPUT PRIVATE IP OF EC2 INSTANCE
-output "JENKINS_SERVER_PRIVATE_IP" {
+output "MASTER_SERVER_PRIVATE_IP" {
   value = aws_instance.my_ec2_instance1.private_ip
+}
+
+# STEP5: OUTPUT PUBLIC IP OF EC2 INSTANCE
+output "MASTER_SERVER_PUBLIC_IP" {
+  value = aws_instance.my_ec2_instance1.public_ip
 }
