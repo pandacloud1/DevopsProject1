@@ -10,7 +10,7 @@ This repository contains the following components:
 
 ## Algorithm
 
-#### 1.  Create two EC2 servers: Master & Node using Terraform
+#### 1.  Create two EC2 instances: Master & Node using Terraform
 
     a. 'Master-Server' will have Java, Jenkins, Maven, Docker, Ansible, & Trivy packages
     b. 'Node-Server' will have Docker, Kubeadm & Kubernetes packages
