@@ -101,14 +101,16 @@ resource "aws_instance" "my_ec2_instance2" {
     }
 
       inline = [
-      # Install Git   
       "sleep 200",
-      "sudo yum update -y && sudo yum install git -y",
+
+      # Install Docker
       "sudo yum update -y",
       "sudo yum install docker -y",
       "sudo systemctl start docker",
       "sudo systemctl enable docker",
       "sudo chmod 777 /var/run/docker.sock",
+      
+      # Install K8s
       "sudo setenforce 0",
       "sudo sed -i 's/^SELINUX=enforcing$$/SELINUX=permissive/' /etc/selinux/config",
       "cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo",
