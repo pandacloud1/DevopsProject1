@@ -60,3 +60,6 @@ This repository contains the following components:
         Content type: json;     Secret: <Jenkins-API-Token> --> Add Webhook
         (Try making any changes in your code & the pipeline should automatically trigger)
 
+#### 8.  Deletion
+     a. Run the below command in Terraform to destroy the entire infrastructure
+        terraform destroy --auto-approve
