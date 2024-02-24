@@ -14,7 +14,7 @@ pipeline {
 
     stages {
         stage("1. Pull Files") {
-            // Copy K8s manifest files from Jenkins workspace to K8s server
+            // Copy K8s manifest files from Master-Server workspace to Node-server
             steps {
               sshagent(['my_ec2_creds']) {         // install 'ssh agent' plugin & generate 'ssh-agent' pipeline syntax generator 
                 sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${NODE_IP}"   // enter your K8s private IP here
@@ -41,7 +41,7 @@ pipeline {
                 sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${NODE_IP}"   // enter your K8s private IP here
                 sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${NODE_IP} kubectl apply -f deployment.yaml"
                 sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${NODE_IP} kubectl apply -f service.yaml"
-                sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${NODE_IP} kubectl get svc"
+                sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${NODE_IP} kubectl get service"
               }
             }
         }
