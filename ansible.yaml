@@ -1,7 +1,0 @@
-- hosts: all
-  become: true
-  tasks: 
-     - name: create new deployment
-       command: kubectl apply -f /home/ec2-user/deployment.yaml
-     - name: create new service
-       command: kubectl apply -f /home/ec2-user/service.yaml
