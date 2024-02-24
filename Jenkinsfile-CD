@@ -6,7 +6,7 @@ pipeline {
     agent any
     // DECLARE THE VARIABLES HERE:
     environment {
-    K8S_IP = '<K8s_Private_IP>'            // paste your K8s server private IP here
+    NODE_IP = '<K8s_Private_IP>'            // paste your K8s server private IP here
     EC2_NAME = "ec2-user"                  // enter your AWS EC2 username
     PIPELINE_NAME = "CI-PIPELINE"          // enter your pipeline name here 
     PROJECT_NAME = "DevopsProject1"        // enter your Devops project name here
@@ -17,9 +17,9 @@ pipeline {
             // Copy K8s manifest files from Jenkins workspace to K8s server
             steps {
               sshagent(['my_ec2_creds']) {         // install 'ssh agent' plugin & generate 'ssh-agent' pipeline syntax generator 
-                sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${K8S_IP}"   // enter your K8s private IP here
-                sh "scp /var/lib/jenkins/workspace/${PIPELINE_NAME}/${PROJECT_NAME}/deployment.yaml ${EC2_NAME}@${K8S_IP}:/home/ec2-user/"
-                sh "scp /var/lib/jenkins/workspace/${PIPELINE_NAME}/${PROJECT_NAME}/service.yaml ${EC2_NAME}@${K8S_IP}:/home/ec2-user/"
+                sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${NODE_IP}"   // enter your K8s private IP here
+                sh "scp /var/lib/jenkins/workspace/${PIPELINE_NAME}/${PROJECT_NAME}/deployment.yaml ${EC2_NAME}@${NODE_IP}:/home/ec2-user/"
+                sh "scp /var/lib/jenkins/workspace/${PIPELINE_NAME}/${PROJECT_NAME}/service.yaml ${EC2_NAME}@${NODE_IP}:/home/ec2-user/"
               }
             }
         }
@@ -38,10 +38,10 @@ pipeline {
            // ii. Your deployment.yaml file must contain the Dockerhub image within the container block
             steps {
               sshagent(['my_ec2_creds']) {          // store EC2 username & pem-key in Jenkins credentials
-                sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${K8S_IP}"   // enter your K8s private IP here
-                sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${K8S_IP} kubectl apply -f deployment.yaml"
-                sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${K8S_IP} kubectl apply -f service.yaml"
-                sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${K8S_IP} kubectl get svc"
+                sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${NODE_IP}"   // enter your K8s private IP here
+                sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${NODE_IP} kubectl apply -f deployment.yaml"
+                sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${NODE_IP} kubectl apply -f service.yaml"
+                sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${NODE_IP} kubectl get svc"
               }
             }
         }
