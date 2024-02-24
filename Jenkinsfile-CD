@@ -6,7 +6,7 @@ pipeline {
     agent any
     // DECLARE THE VARIABLES HERE:
     environment {
-    NODE_IP = '<K8s_Private_IP>'            // paste your K8s server private IP here
+    NODE_IP = '<Node_Server_Private_IP>'   // paste your Node-Server private IP here
     EC2_NAME = "ec2-user"                  // enter your AWS EC2 username
     PIPELINE_NAME = "CI-PIPELINE"          // enter your pipeline name here 
     PROJECT_NAME = "DevopsProject1"        // enter your Devops project name here
@@ -17,7 +17,7 @@ pipeline {
             // Copy K8s manifest files from Master-Server workspace to Node-server
             steps {
               sshagent(['my_ec2_creds']) {         // install 'ssh agent' plugin & generate 'ssh-agent' pipeline syntax generator 
-                sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${NODE_IP}"   // enter your K8s private IP here
+                sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${NODE_IP}"   // enter your Node Server's private IP here
                 sh "scp /var/lib/jenkins/workspace/${PIPELINE_NAME}/${PROJECT_NAME}/deployment.yaml ${EC2_NAME}@${NODE_IP}:/home/ec2-user/"
                 sh "scp /var/lib/jenkins/workspace/${PIPELINE_NAME}/${PROJECT_NAME}/service.yaml ${EC2_NAME}@${NODE_IP}:/home/ec2-user/"
               }
@@ -34,11 +34,11 @@ pipeline {
 
         stage("3. Deployment") {
           // K8s Deployment using Ansible
-            // i. Ensure to establish passwordless connection between Ansible & K8s first
+            // i. Ensure to establish passwordless connection between Master & Node first
            // ii. Your deployment.yaml file must contain the Dockerhub image within the container block
             steps {
               sshagent(['my_ec2_creds']) {          // store EC2 username & pem-key in Jenkins credentials
-                sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${NODE_IP}"   // enter your K8s private IP here
+                sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${NODE_IP}"   // enter your Node-Server private IP here
                 sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${NODE_IP} kubectl apply -f deployment.yaml"
                 sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${NODE_IP} kubectl apply -f service.yaml"
                 sh "ssh -o StrictHostKeyChecking=no ${EC2_NAME}@${NODE_IP} kubectl rollout restart deploy"
