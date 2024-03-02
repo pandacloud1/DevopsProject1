@@ -1,7 +1,6 @@
 # Devops-Project.
 
-![image](https://github.com/pandacloud1/DevopsProject1/assets/134182273/426d8752-c42a-4f1c-8fb1-c736e89f45ad)
-
+![image](https://github.com/pandacloud1/DevopsProject1/assets/134182273/c4495fd5-77e7-48e2-9881-05adfe4e6836)
 
 This repository contains the following components:
 
