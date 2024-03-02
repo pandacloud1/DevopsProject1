@@ -1,5 +1,7 @@
 # Devops-Project.
 
+![Untitled Diagram drawio](https://github.com/pandacloud1/DevopsProject1/assets/134182273/a3d94da9-2091-41ac-ae95-553ad9fa7711)
+
 This repository contains the following components:
 
 1.  Simple Java Code
