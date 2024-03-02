@@ -1,6 +1,7 @@
 # Devops-Project.
 
-![Untitled Diagram drawio](https://github.com/pandacloud1/DevopsProject1/assets/134182273/a3d94da9-2091-41ac-ae95-553ad9fa7711)
+![image](https://github.com/pandacloud1/DevopsProject1/assets/134182273/426d8752-c42a-4f1c-8fb1-c736e89f45ad)
+
 
 This repository contains the following components:
 
